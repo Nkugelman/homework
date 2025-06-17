@@ -1,12 +1,35 @@
+html{
+    background-color: white;
+}
+body{
+    background-color: #fff8e1;
+}
+
 header  {
     color:aqua;
     font-size: 2em;
+    text-align: center;
     
 }
-h1 {
-    color: blue;
+.navbar{
+text-align: center;
+margin: 15px 0;
+color:blue;
 }
-img{
-   width: 200px;
-   height: 200px;
+.navbar a:hover{
+    color: brown;
+    
 }
+
+
+main{
+    text-align: center;
+    color:darkred;
+    margin-top: auto;
+}
+#copyright{
+    color: black;
+    text-align: center;
+}
+
+

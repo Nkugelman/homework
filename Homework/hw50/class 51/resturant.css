@@ -1,0 +1,53 @@
+
+html{
+
+    background-color: whitesmoke;
+}
+body{
+    padding: 1em;
+    background-color: black;
+    color: white;
+    max-width: 800px;
+    margin: auto;
+}
+header {
+    text-align: center;
+    border: 5px solid red;
+    border-radius: 8px;
+}
+a {
+    color: black;
+    text-decoration:  none;
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+a:focus{
+    color: blue;
+}
+a:active{
+    color: orange;
+}
+/*html{
+    font-size: 62.5%;
+}
+article {
+    font-size: 2em;
+}
+p{
+    font-size: 3rem;
+}*/
+img{
+    display: inline-block;
+    border-radius: 25px;
+    height: 20em;
+}
+.container{
+    padding-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+
