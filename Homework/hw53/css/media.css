@@ -1,0 +1,39 @@
+video {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+audio {
+  width: 100%;
+  max-width: 400px;
+}
+.audio-file{
+    border: 2px black solid;
+    margin: 0 auto;
+    padding: 10px 10px;
+    display:inline-block;
+
+}
+.video-file{
+  border: 2px black solid;
+padding: 10px 10px;
+ 
+}
+.media-file h2 {
+  margin-bottom: 15px;
+  color: #4a148c;
+}
+.media-file{
+      background-color: #ffffffcc;
+       padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 700px;
+
+  border: 2px solid #ccc;
+  background: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display:inline-block
+}
