@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form method="post">
+    <label >first name:
+        <input name ="first" minlength="3" maxlength="10" required />
+    </label>
+    <label for="last">last name:</label>
+    <input  name="last" id="last" />
+       <label for="password">Password:</label>
+    <input type="password" id="password" name="password"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters"
+      placeholder="Enter password"
+      required>
+    <br><br>
+
+   </form>
+</body>
+</html>
