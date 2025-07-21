@@ -1,5 +1,9 @@
 
-       body {
+      
+      html {
+  scroll-padding-top: 60px;
+}
+body {
     font-family: Helvetica,  Arial,sans-serif;    
     display: grid;
     justify-content: center;
@@ -17,7 +21,8 @@
     
     width: 80%;
     margin: 0 auto;
-    gap: 1em;
+     gap: 1em;
+   
 }
 
         #products {
@@ -29,6 +34,7 @@
         #financials {
             grid-area: financials;
             overflow-x: hidden; 
+            
         }
 nav {
     grid-area: nav;
@@ -217,6 +223,7 @@ footer {
 h2{
     text-align: left;
 }
+
 
 @media (min-width: 800px) {
    
