@@ -1,0 +1,56 @@
+.menu-item{
+    border: 3px solid red;
+    margin-bottom: .5em;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px 4px green;
+    display: inline-block;
+    
+    
+    /*height: 25em;
+    overflow: auto;*/
+  /*  clear: left;*/
+ 
+
+}
+
+.out-of-stock{
+    background-color: yellow;
+}
+.menu-item{
+  box-sizing: border-box;
+}
+ .menu-item img{
+    width: 250px;
+    height: 250px;
+    padding: 1em;
+    margin: auto;
+     float:left;
+    }
+  li{
+    color: #4e342e;
+    background-color:  #fff3e0;
+     display: inline-block;
+     border:2px solid #8d6e63;
+      font-family: Arial, sans-serif;
+      padding: 10px 20px;
+     margin: 10px;
+      border-radius: 8px;
+       transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+    li:hover{
+       background-color: #ffe0b2;  
+  transform: scale(1.05);
+    }
+   .menu-item img:hover{
+     transform: scale(1.3 );
+    }
+    .menu-container{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      padding: 1.5;
+    }
+    
+    
+    
+   

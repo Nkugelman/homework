@@ -1,0 +1,164 @@
+
+.menu-item {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 700px;
+  height: 300px;
+  margin-bottom: 1em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow:0 8px 16px rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 2em;
+  text-shadow: 1px 1px 3px black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.menu-nav{
+    display: flex;
+  gap: 1em;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  background: linear-gradient(to right, #888, #aaa);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  margin-top: 130px;
+  margin: 0 center;
+  transition: transform 0.2s ease;
+}
+.menu-nav:hover {
+  transform: scale(1.02);
+}
+
+.menu-nav a {
+  color:black;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  
+}
+
+
+.menu-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.menu-item * {
+  position: relative;
+  z-index: 1;
+}
+.menu-item:hover{
+     transform: scale(1.05);
+}
+
+
+.menu-item.steak {
+  background-image: url("../images/images.webp");
+}
+
+.menu-item.burger {
+  background-image: url("../images/hamburgur.webp");
+}
+
+.menu-item.spaghetti {
+  background-image: url("../images/spageti.webp");
+}
+
+.menu-item.spring-rolls {
+  background-image: url("../images/Crispy Spring Rolls.webp");
+}
+
+.menu-item.hummus {
+  background-image: url("../images/Hummus & Pita.jpg");
+}
+
+.menu-item.fries {
+  background-image: url("../images/chips.webp");
+}
+
+.menu-item.lava-cake {
+  background-image: url("../images/Chocolate Lava Cake.webp");
+}
+
+.menu-item.vanilla {
+  background-image: url("../images/vanilla-bean-ice-cream_0422.webp");
+}
+
+.menu-item.apple-crumble {
+  background-image: url("../images/applecrumble.webp");
+}
+
+.menu-item.grape-juice {
+  background-image: url("../images/grapejuice.webp");
+}
+
+.menu-item.lemonade {
+  background-image: url("../images/lemonade.jpeg");
+}
+
+.menu-item.tea {
+  background-image: url("../images/tea.jpeg");
+}
+
+
+.menu-item.out-of-stock:after {
+    content: "Out Of Stock";
+ position:absolute;
+ top:10px ;
+ right: 10px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+    font-weight: bold;
+     padding: 5px 10px;
+  border-radius: 5px;
+   font-size: 2em;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  padding: 1.5em;
+    
+  justify-content: center;
+}
+
+
+ul#menu-top li {
+  color: #4e342e;
+  background-color: #fff3e0;
+  display: inline-block;
+  border: 2px solid #8d6e63;
+  font-family: Arial, sans-serif;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+ul#menu-top li:hover {
+  background-color: #ffe0b2;
+  transform: scale(1.05);
+}
+

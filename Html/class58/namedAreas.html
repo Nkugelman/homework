@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            gap: 1em;
+           
+           /* */
+            grid-template-areas:
+            'header'
+            'sidebar'
+            'main'
+            'footer';
+
+        }
+        header{
+            grid-area: header;
+        }
+        aside{
+            grid-area: sidebar;
+            
+        }
+        article{
+            grid-area: main;
+        }
+        footer{
+            grid-area: footer;
+        }
+        @media(600px <= width){
+            body{
+                grid-template-areas: 
+            'header header'
+            'sidebar main'
+            'footer footer';
+            }
+        }
+         @media(800px <= width){
+            body{
+                grid-template-areas: 
+            '.  header header .'
+            ' . sidebar main . '
+            ' . footer footer . ';
+              grid-template-columns: 1fr 1fr 2fr 1fr;
+            }
+          
+        }
+    </style>
+</head>
+<body>
+    <header>header - Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat architecto deleniti suscipit consectetur dolores laudantium rem vel, eum, sit impedit corrupti velit iusto. Amet fugit pariatur perferendis molestiae dolore eveniet.</header>
+<aside> aside - Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat architecto deleniti suscipit consectetur dolores laudantium rem vel, eum, sit impedit corrupti velit iusto. Amet fugit pariatur perferendis molestiae dolore eveniet.</aside>
+<article> article - Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam eveniet commodi earum cum ipsa labore accusamus culpa nihil velit consectetur praesentium quis libero provident, nam incidunt obcaecati nemo in. Reiciendis, totam nostrum velit omnis odio facere doloribus sed, iure eius exercitationem minus, sapiente sunt laudantium vero? Commodi, quisquam, omnis illo dolorum quis blanditiis debitis numquam, vitae ipsam illum fugit fugiat veritatis eveniet molestiae itaque laudantium! Dicta nisi fuga quod, fugit fugiat pariatur eum ipsa officiis, similique itaque repellat vero non perferendis quos alias tempora? Sed, aut. Aliquam laborum natus fugit. Nobis iusto laboriosam dolores quam libero quaerat ad aspernatur soluta. sit amet consectetur adipisicing elit. Placeat architecto deleniti suscipit consectetur dolores laudantium rem vel, eum, sit impedit corrupti velit iusto. Amet fugit pariatur perferendis molestiae dolore eveniet.</article>
+<footer> footer - Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat architecto deleniti suscipit consectetur dolores laudantium rem vel, eum, sit impedit corrupti velit iusto. Amet fugit pariatur perferendis molestiae dolore eveniet.</footer>
+</body>
+</html>

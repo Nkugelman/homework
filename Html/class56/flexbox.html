@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article{
+            border: 3px solid red;
+          display:flex;
+         /* flex-direction: column;*/
+         justify-content: space-around;
+         height: 800px;
+           align-items: baseline;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+        section{
+            border: 3px solid yellow;
+         flex-grow: 1;
+        flex-basis: 100px;
+             
+       
+        }
+        section:nth-child(2){
+            font-size: 2em;
+            align-self: flex-end;
+        }
+        h5{
+          
+        }
+        .box{
+            border: 2px orange solid;
+            background-color: aqua;
+          width: 200px;
+            height: 200px;
+             display: flex;
+           /*  justify-content: center;
+            align-items: center;*/
+        }
+        .box p{
+            margin: auto;
+        }
+        section:nth-child(3){
+         flex-grow: 2;
+        }
+        section:nth-child(4){
+         flex-grow: 2;
+         flex-shrink: 5;
+        }
+        .form-div{
+            display: flex;
+        }
+        .form-div input{
+            flex-grow: 1;
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flexbox</h1>
+    </header>
+    <article>
+        <section>
+            <h1>1</h1>
+            <div>im a flexbox item</div>
+        </section>
+        <section>
+            <h1>2</h1>
+             <div>im a flexbox item</div>
+        </section>
+        <section>
+            <h1>3</h1>
+             <div>im a flexbox item</div>
+        </section>
+        <section>
+            <h1>4</h1>
+             <div>im a flexbox item this guy has aton of txt</div>
+        </section>
+        <section>
+            <h1>5</h1>
+             <div>im a flexbox item</div>
+        </section>
+        <section>
+            <h1>6</h1>
+             <div>im a flexbox item</div>
+        </section>
+        <section>
+            <h1>7</h1>
+             <div>im a flexbox item</div>
+        </section>
+        <section>
+            <h1>8</h1>
+             <div>im a flexbox item</div>
+        </section>
+    </article>
+    <div class="box">
+        <p>hi!</p>
+    </div>
+    <h5>copright tuli &copy;</h5>
+    <hr>
+    <form >
+        <div class ="form-div">
+        <label for="first">first</label>
+        <input id="first" name="first">
+ </div>
+         <div class ="form-div"></div>
+          <label for="last">last</label>
+           <input id="last" name="last">
+           </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+html{
+    background-color: white;
+}
+html,body{
+    height: 100%;
+     font-family: Arial, sans-serif;
+    
+}
+.background-overlay {
+  background: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7)), 
+              url("../images/resturant\ background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  padding: 80px;
+}
+body{
+   
+  background-color: #f8f8f8;
+  
+  color: #333;
+  max-width: 1000px;
+ background-size: cover;
+   background-repeat: no-repeat;
+    margin: auto;
+}
+
+header  {
+ text-align: center;
+  padding: 30px 0;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin-bottom: 20px;
+    
+}
+nav ul{
+    list-style-type:none; 
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+nav a{
+    color:#ffffff;
+    font-weight: 400;
+    background-color: #444;
+    border-radius: 5px;
+     transition: background 0.3s ease;
+}
+nav a:hover {
+  background-color: #666;
+}

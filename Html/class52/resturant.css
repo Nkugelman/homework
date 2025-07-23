@@ -1,0 +1,41 @@
+html{
+    background-color: white;
+}
+body{
+    background-color: #fff8e1;
+}
+
+header  {
+    color:aqua;
+    font-size: 2em;
+    text-align: center;
+    
+}
+.navbar{
+text-align: center;
+margin: 15px 0;
+color:blue;
+}
+.navbar a:hover{
+    color: brown;
+    
+}
+
+
+main{
+    text-align: center;
+    color:darkred;
+    margin-top: auto;
+}
+#copyright{
+    color: black;
+    text-align: center;
+}
+header img {
+    border-radius: 100px;
+}
+.error{
+    background-color: red;
+}
+
+

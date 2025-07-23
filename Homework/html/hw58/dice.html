@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+              display: grid;
+              gap: 1em;
+              grid-template-columns: repeat(3, 1fr);
+              background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+              padding: 2em;
+        }
+        .dice  {
+            display: grid;
+            gap: 1em;
+             grid-template-areas: 
+           'one two three'
+           'four five six'
+           'seven eight nine';
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            background-color: black;
+            width: 100px;
+            height: 100px;
+
+            }
+            .dot {
+                width: 20px;
+                height: 20px;
+                background-color:yellow;
+                border-radius: 50%;
+                margin: auto;
+            }
+       .dice-1 .dot:nth-child(1){
+           grid-area:five;
+       }
+         .dice-2 .dot:nth-child(1){
+              grid-area: one;
+         }
+            .dice-2 .dot:nth-child(2){
+                grid-area: nine;
+            }
+            .dice-3 .dot:nth-child(1){
+                grid-area: one;
+            }
+            .dice-3 .dot:nth-child(2){
+                grid-area: five;
+            }
+            .dice-3 .dot:nth-child(3){
+                grid-area:nine;
+            }
+            .dice-4 .dot:nth-child(1){
+                grid-area: one;
+            }
+            .dice-4 .dot:nth-child(2){
+                grid-area:three;
+            }
+            .dice-4 .dot:nth-child(3){
+                grid-area:seven;
+            }   
+            .dice-4 .dot:nth-child(4){
+                grid-area: nine;
+            }  
+            .dice-5 .dot:nth-child(1){
+                grid-area: one;
+            }
+            .dice-5 .dot:nth-child(2){
+                grid-area: three;
+            }
+            .dice-5 .dot:nth-child(3){
+                grid-area: five;
+            }
+            .dice-5 .dot:nth-child(4){
+                grid-area: seven;
+            }
+            .dice-5 .dot:nth-child(5){
+                grid-area: nine;
+            }     
+            .dice-6 .dot:nth-child(1){
+                grid-area: one;
+            }  
+             .dice-6 .dot:nth-child(2){
+                 grid-area: four;
+             }
+              .dice-6 .dot:nth-child(3){
+                grid-area: seven;
+              }
+               .dice-6 .dot:nth-child(4){
+                grid-area: three;
+               }
+                .dice-6 .dot:nth-child(5){
+                    grid-area: six;
+                }
+                .dice-6 .dot:nth-child(6){
+                    grid-area: nine;
+               }
+               .dice:hover {
+                   transform: rotate(360deg);
+                   transition: transform 1.5s ease-in-out;
+                   cursor: grabbing;
+               }
+                
+    </style>
+</head>
+<body>
+  
+   <div class="dice dice-1">
+    <div class = "dot">  </div>
+ </div>
+
+  <div class="dice dice-2">
+    <div class = "dot"></div>
+    <div class = "dot"></div>
+   </div>
+
+   <div class="dice dice-3">
+       <div class = "dot"></div>
+        <div class = "dot"></div>
+         <div class = "dot"></div>
+   </div>
+ 
+  
+   <div class="dice dice-4">
+       <div class = "dot"></div>
+        <div class = "dot"></div>
+         <div class = "dot"></div>
+          <div class = "dot"></div>
+   </div>
+   <div class="dice dice-5">
+       <div class = "dot"></div>
+        <div class = "dot"></div>
+         <div class = "dot"></div>
+            <div class = "dot"></div>
+             <div class = "dot"></div>
+   </div>
+    <div class="dice dice-6">
+       <div class = "dot"></div>
+       <div class = "dot"></div>
+       <div class = "dot"></div>
+       <div class = "dot"></div>
+       <div class = "dot"></div>
+       <div class = "dot"></div>
+  </div>
+  
+
+</body>
+</html>  
