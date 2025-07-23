@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://127.0.0.1:5500/Homework/hw55/reviews.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+   
+    <style>
+        header{
+            margin-top: 150px;
+            text-align: center;
+        }
+        input[ name="review"]{
+         display: block;
+          height: 150px;
+      width: 80%;
+      margin: 20px auto;
+      padding: 10px;
+      text-align: left;
+        }
+         input {
+      display: block;
+      margin: 10px auto;
+      padding: 8px;
+      width: 60%;
+      font-size: 1rem;
+    }
+        input::placeholder {
+  text-align: center;
+}
+           input[type="submit"] {
+      width: 200px;
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    form {
+      text-align: center;
+    }
+      header#rev-head {
+      margin-top: 100px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+    }
+     input,
+    textarea {
+      display: block;
+      margin: 10px auto;
+      padding: 8px;
+      width: 60%;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    .background-overlay {
+  background: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7)), 
+              url("images/resturant-background.jpg") no-repeat center center fixed;
+   background-size: cover;         
+  min-height: 100vh;               
+  width: 100%;                   
+  padding: 80px 20px;
+  box-sizing: border-box;
+}
+
+    </style>
+</head>
+<body>
+     <div class="background-overlay">
+    <header class="container">
+      <h1>My Kosher Restaurant</h1>
+      <nav class="navbar">
+        <a href="http://127.0.0.1:5500/Homework/hw55/index.html">Home</a> |
+        <a href="http://127.0.0.1:5500/Homework/hw55/contact.html">Contact</a> |
+        <a href="http://127.0.0.1:5500/Homework/hw55/maps.html">Location</a> |
+      <a href="http://127.0.0.1:5500/Homework/hw55/media.html">About Us</a>|
+        <a href="http://127.0.0.1:5500/Homework/hw55/reviews.html">Reviews</a>
+      </nav>
+      <div id="rev-head" class="background-overlay">
+            <h2>Your Opinion Matters</h2>
+<p>Help us serve you better by leaving a review of your recent experience.</p>
+</div>
+   </header>
+    
+
+      
+    <form method="post">
+
+       
+     <label> First Name:
+        <input name="first" type="text" minlength="3" maxlength="11" required="">
+        </label>
+       Last Name:<input name="last" type="text" minlength="3" maxlength="11" required="">
+     Password: <input type="password" name="password">
+     
+     <br>
+     <label for="review">Your review</label>
+     <input type="text" name="review" placeholder="Please enter your review here">
+     <input type="submit">
+   </form>
+   </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

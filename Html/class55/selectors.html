@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin-top: 1em;
+        }
+        section{
+            color: red;
+            font-family: monospace;
+            border: 5px black solid;
+        }
+        #it{
+            font-family: cursive;
+        }
+        .special{
+            font-style: italic;
+        }
+        .special  ,p{
+            background-color: yellow;
+        }
+        .special p{
+            color: blue;
+        }
+        .special *{
+            rotate: 2deg;
+        }
+        .special >p{
+            rotate: -2deg;
+        }
+        section + p{
+           text-decoration: underline;
+        }
+        section ~ p{
+            font-weight: bold;
+        }
+        section:not(.special){
+            border-color: green;
+        }
+        .special:hover{
+            background-color: pink;
+        }
+        .special::first-letter{
+            font-size: 1.5em;
+        }
+        .special::first-line{
+           text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <p id ="it">im a paragraph</p>
+  <section>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam dignissimos facere, eos accusantium optio commodi sed quaerat saepe odio incidunt nisi veniam. Maiores, asperiores? Qui.
+  </section>
+   <section class ="special">
+    Lorem ipsum dolor sit, amet consecteturp  <p>im a p in a 
+        special</p><div><p>im a p in a div</p></div> adipisicing elit. Aliquam
+        <h5>h5 in a special</h5> dignissimos facere, eos accusantium optio commodi sed quaerat saepe odio incidunt nisi veniam. Maiores, asperiores? Qui.
+  </section>
+   <section>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam dignissimos facere, eos accusantium optio commodi sed quaerat saepe odio incidunt nisi veniam. Maiores, asperiores? Qui.
+  </section>
+   <section>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam dignissimos facere, eos accusantium optio commodi sed quaerat saepe odio incidunt nisi veniam. Maiores, asperiores? Qui.
+  </section>
+   <section>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam dignissimos facere, eos accusantium optio commodi sed quaerat saepe odio incidunt nisi veniam. Maiores, asperiores? Qui.
+  </section>
+   <section>
+    Lorem ipsum dolor sit, amet consectetur adipisicing 
+    elit. Aliquam dignissimos facere, eos 
+    accusantium optio commodi sed quaerat 
+    saepe odio incidunt nisi veniam. Maiores, 
+    asperiores? Qui.
+  </section>
+  <p>im after the sections</p>
+    <p>im also after the sections</p>
+</body>
+</html>

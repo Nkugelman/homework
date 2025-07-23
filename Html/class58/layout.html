@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            gap: 1em;
+
+            margin: 2em;
+
+            grid-template-columns: repeat(12,1fr);
+        }
+        body *{
+            grid-column: 1/-1;
+        }
+
+        @media(600px <= width){
+           nav ul{
+            display: flex;
+            justify-content: space-evenly;
+           
+           }
+           aside{
+            grid-column:1 /span 2;
+            grid-row: 3;
+           }
+           article{
+            grid-column:3 / -1;
+            grid-row: 3;
+           }
+           .add{
+            grid-column: 1 / span 2;
+            grid-row: 4;
+           }
+           footer{
+            grid-column: 3 / -1;
+            grid-row: 4;
+           }
+        }
+         @media(800px <= width){
+            nav ul{
+                flex-direction: column;
+
+            }
+            nav{
+                grid-row: 2;
+            }
+            article{
+
+                grid-row: 2/span 2;
+                grid-column: 3 / -3;
+            }
+            aside{
+                grid-row:2 ;
+               grid-column: -3/ span 2;
+            }
+             .add{
+                grid-row:3 ;
+               grid-column: -3/-1;
+            }
+            footer{
+                grid-column: 1/-1;
+                grid-row: 4;
+            }
+
+         }
+    </style>
+</head>
+<body>
+    <header> header - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa est ducimus quae asperiores, suscipit vel et, adipisci nostrum fuga odio maiores quo beatae molestiae, rerum alias aspernatur? Provident, sint quas?</header>
+<nav>
+    <ul>
+       <li><a href="#">link1</a></li>
+       <li><a href="#">link2</a></li>
+       <li><a href="#">link3</a></li>
+       <li><a href="#">link4</a></li>
+    </ul>
+</nav>
+
+<aside> aside Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptatibus minus recusandae commodi architecto dolore quae numquam, provident ut libero repellat eaque quo impedit blanditiis. A exercitationem eum impedit? Sint?</aside>
+<article><h1>main content</h1> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ut labore magni. Ullam quas, quam tempore molestiae dolore dolor vel dolorem facere delectus quidem deleniti culpa minima expedita nisi dignissimos quaerat dolorum recusandae totam ea quae illo in. Minus quis accusantium laboriosam ipsam odio aperiam deleniti praesentium tempora voluptate voluptas. Quidem facilis nemo commodi? Vitae eius cum praesentium, esse quia debitis aliquid dolor corrupti ratione temporibus architecto necessitatibus nihil voluptatum quidem dolorem tempora ut fuga soluta tempore unde voluptatibus. Maiores laborum non quidem illum. Aliquam saepe ut porro similique accusamus magni nam quaerat hic maxime eligendi. Molestiae asperiores, voluptate unde omnis nesciunt ex, perferendis voluptatum magnam accusamus earum iusto dignissimos, inventore aspernatur? Architecto modi omnis hic culpa animi. Esse beatae repellat iste. Tempore fuga, velit cumque inventore iure temporibus doloremque libero, aspernatur odit optio ipsa. Vel soluta numquam minima provident, sed hic, dolor ea temporibus cumque rem aperiam doloribus a.</article>
+<div class="add"> ad Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro facilis, omnis asperiores fuga quo error totam officia soluta? Minima expedita eum aliquam nostrum, provident atque numquam recusandae quam omnis odio.</div>
+<footer>footer Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dignissimos fuga provident! Iure, amet reprehenderit, illum voluptatem hic at ullam odio ipsum consequatur fugit quia fuga, quibusdam soluta esse ea!</footer>
+</body>
+</html>

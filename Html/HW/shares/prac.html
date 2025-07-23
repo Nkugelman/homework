@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Table with Scroll</title>
+    <style>
+        body {
+            display: grid;
+            width: 80%;
+            margin: 0 auto; /* Centers the body */
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Prevents page-wide horizontal scrolling */
+        }
+        .section {
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            padding: 10px;
+            min-height: 100px; /* For visibility */
+        }
+        #section3 {
+            max-width: 100%; /* Fits within body */
+            overflow-x: auto; /* Horizontal scrollbar for table */
+            display: flex;
+            justify-content: center; /* Centers the table */
+        }
+        #section3 table {
+            width: auto; /* Table takes its natural width, not full width */
+            min-width: 800px; /* Ensures table is wide enough to need scrolling on narrow screens */
+            border-collapse: collapse;
+        }
+        #section3 th, #section3 td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        #section3 th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="section" id="section1">Section 1: Normal content</div>
+    <div class="section" id="section2">Section 2: Normal content</div>
+    <div class="section" id="section3">
+        <table>
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                    <th>Column 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                    <td>Data 4</td>
+                </tr>
+                <tr>
+                    <td>More Data 1</td>
+                    <td>More Data 2</td>
+                    <td>More Data 3</td>
+                    <td>More Data 4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section" id="section4">Section 4: Normal content</div>
+    <div class="section" id="section5">Section 5: Normal content</div>
+</body>
+</html>
