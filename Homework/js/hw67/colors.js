@@ -15,6 +15,20 @@
             document.body.style.color = pickRandomColor();
             document.body.style.backgroundColor = pickRandomColor();
             addColorsToTable();
+              document.addEventListener('click', function (e) {
+        stop();
+        if (e.target.tagName === 'TD') {
+            const cell = e.target;
+            const row = cell.parentElement;
+            const cells = row.children;
+            const color = cells[0].textContent;
+            const bgColor = cells[1].textContent;
+            document.body.style.color = color;
+            document.body.style.backgroundColor = bgColor;
+        }
+    });
+
+            console.log(colors);
             // if (index === colors.length) index = 0;
             //  document.body.style.backgroundColor = pickRandomColor();
             // eslint-disable-next-line no-cond-assign
@@ -66,5 +80,5 @@
     stopButton.addEventListener('click', function () {
             stop();
     });
-
+  
 }());
