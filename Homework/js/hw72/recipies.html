@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 2rem;
+}
+
+select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.has-recipe {
+  display: none;
+}
+
+img {
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #fff;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+        body{
+            text-align: center;
+        }
+        .has-recipe{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>my recipes</h1>
+    </header>
+    <hr>
+    <select  id="recipes">
+      <option hidden>select a recipe</option>
+    </select>
+    <div class="no-recipe">
+        please choose a recipe
+        <h3 id="error"></h3>
+
+    </div>
+    <div class="has-recipe">
+        <h2 id="name"></h2>
+    <img id="picture">
+    <h5>ingredients</h5>
+    <ul id="ingredients"></ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="recipies.js"></script>
+   
+</body>
+</html>

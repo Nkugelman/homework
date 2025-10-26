@@ -1,0 +1,17 @@
+[
+    {
+        "name":"kugel",
+        "file":"kugel.json"
+    },
+    {
+        
+        "name":"cholent",
+        "file":"cholent.json"
+
+    },
+    {
+        
+        "name":"soup",
+        "file":"soup.json"
+    }
+]
