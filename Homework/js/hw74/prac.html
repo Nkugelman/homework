@@ -1,0 +1,468 @@
+<!-- Save as index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wikipedia + Google Maps Mashup</title>
+  <style>
+    :root {
+      --sidebar-width: 320px;
+      --gap: 12px;
+      --accent: #2b7cff;
+      --muted: #666;
+      --card-bg: #fff;
+      --shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    html,body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #f1f4f8;
+      color: #111;
+    }
+
+    .topbar {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px 16px;
+      background: white;
+      border-bottom: 1px solid #e6e9ee;
+    }
+
+    .container {
+      display: flex;
+      height: calc(100% - 56px);
+    }
+
+    #sidebar {
+      width: var(--sidebar-width);
+      min-width: 260px;
+      max-width: 420px;
+      padding: 10px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      background: linear-gradient(180deg,#fafbfd,#f5f7fa);
+      border-right: 1px solid #e6e9ee;
+    }
+
+    #map {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-wrap {
+      display:flex;
+      gap:8px;
+      align-items:center;
+      width:100%;
+    }
+
+    .search-wrap input[type="search"] {
+      flex:1;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #d6dbe4;
+      outline: none;
+      font-size: 16px;
+    }
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+    }
+    .btn:disabled { opacity: .6; cursor: not-allowed; }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .result {
+      display:flex;
+      gap:10px;
+      padding:10px;
+      margin-bottom:10px;
+      border-radius:10px;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      align-items:flex-start;
+    }
+
+    .result:hover { transform: translateY(-3px); transition: .12s ease; }
+
+    .thumb {
+      width:78px;
+      height:78px;
+      flex:0 0 78px;
+      border-radius:6px;
+      object-fit:cover;
+      background: #eee;
+      border: 1px solid #e6e9ee;
+    }
+
+    .meta h4 {
+      margin:0 0 6px 0;
+      font-size:15px;
+      line-height:1.15;
+      color: #0b1b3a;
+    }
+    .meta p {
+      margin:0;
+      font-size: 13px;
+      color: #333;
+      max-height: 3.6em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .meta .links {
+      margin-top:8px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .link {
+      text-decoration:none;
+      font-size:13px;
+      color: var(--accent);
+    }
+
+    #status {
+      font-size: 13px;
+      color: var(--muted);
+      margin-left: 8px;
+    }
+
+    /* small map controls container so our zoom-to-all is visible */
+    #controls {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      z-index: 10;
+      display:flex;
+      gap:8px;
+    }
+    #controls button {
+      padding:8px 10px;
+      border-radius:8px;
+      border: none;
+      background: white;
+      box-shadow: var(--shadow);
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .container { flex-direction: column; }
+      #sidebar { width: 100%; height: 36vh; max-height: 42vh; order:2; border-right: none; border-top: 1px solid #e6e9ee; }
+      #map { order:1; height: calc(100% - 36vh); }
+      .topbar { position: sticky; top:0; z-index: 10; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div style="font-weight:700;">Wikipedia Map Search</div>
+    <div class="search-wrap" style="max-width:760px; margin-left:10px;">
+      <input id="q" type="search" placeholder="Enter a topic (e.g. 'yeshiva', 'statue of liberty', 'paris')" />
+      <button id="searchBtn" class="btn">Search</button>
+      <div id="status" class="small">Ready</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <aside id="sidebar" aria-label="Search results">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="font-weight:700;">Results</div>
+        <div class="small">Click a result to pan & open</div>
+      </div>
+      <div id="resultsList"></div>
+    </aside>
+
+    <main id="map" role="application">
+      <div id="controls">
+        <button id="fitBtn" title="Zoom to show all markers">Fit all</button>
+        <button id="clearBtn" title="Clear markers & results">Clear</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Replace YOUR_GOOGLE_MAPS_API_KEY_HERE below with your key.
+       Keep the callback parameter (initMap). DO NOT publish your key. -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlldoFpxfOcVlKNqCR0zAJo0msOP8JIJo&callback=initMap"
+    async defer></script>
+
+  <script>
+    // --------- Configuration: replace these ----------
+    const GEONAMES_USERNAME = 'nkugelman'; // <- set your GeoNames username here
+    // -------------------------------------------------
+
+    if (GEONAMES_USERNAME === '' || GEONAMES_USERNAME === 'YOUR_GEONAMES_USERNAME') {
+      console.warn('Set GEONAMES_USERNAME in the script before use.');
+    }
+    if (typeof google === 'undefined') {
+      // maps script loads async; initMap will be called by the API callback.
+    }
+
+    // App state
+    let map;
+    let markers = [];
+    let infoWindow;
+    let lastResults = [];
+
+    function initMap() {
+      // initial center: continental US
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 40.0, lng: -20.0 },
+        zoom: 3,
+        mapTypeControl: false,
+        fullscreenControl: true,
+      });
+
+      infoWindow = new google.maps.InfoWindow();
+
+      // wire UI
+      document.getElementById('searchBtn').addEventListener('click', onSearchClicked);
+      document.getElementById('q').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') onSearchClicked();
+      });
+      document.getElementById('fitBtn').addEventListener('click', fitToMarkers);
+      document.getElementById('clearBtn').addEventListener('click', clearAll);
+      setStatus('Ready — enter a search and press Search');
+    }
+
+    function setStatus(text) {
+      const s = document.getElementById('status');
+      s.textContent = text;
+    }
+
+    async function onSearchClicked() {
+      const q = document.getElementById('q').value.trim();
+      if (!q) {
+        setStatus('Type something to search.');
+        return;
+      }
+      setStatus('Searching GeoNames...');
+      document.getElementById('searchBtn').disabled = true;
+
+      try {
+        const results = await fetchGeoNames(q, 20);
+        lastResults = results;
+        renderResults(results);
+        placeMarkers(results);
+        if (results.length > 0) {
+          fitToMarkers();
+          setStatus(`Found ${results.length} result(s).`);
+        } else {
+          setStatus('No results found.');
+        }
+      } catch (err) {
+        console.error(err);
+        setStatus('Error: ' + (err.message || err));
+      } finally {
+        document.getElementById('searchBtn').disabled = false;
+      }
+    }
+
+    function fetchGeoNames(query, maxRows = 10) {
+      // Using the Wikipedia search endpoint from GeoNames.
+      // NOTE: geoNames sometimes returns via http; if you get mixed-content errors
+      // run your page over http (localhost) or configure accordingly.
+      // We'll call the JSON endpoint:
+      const base = 'http://api.geonames.org/wikipediaSearchJSON';
+      const url = base
+        + '?q=' + encodeURIComponent(query)
+        + '&maxRows=' + encodeURIComponent(maxRows)
+        + '&username=' + encodeURIComponent(GEONAMES_USERNAME)
+        + '&type=json';
+
+      // Use fetch
+      return fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok: ' + response.status);
+          return response.json();
+        })
+        .then(data => {
+          // GeoNames returns { geonames: [...] } (or maybe [])
+          if (!data || !data.geonames) return [];
+          // Normalize items we care about
+          return data.geonames.map(item => ({
+            title: item.title,
+            summary: item.summary || '',
+            lat: Number(item.lat),
+            lng: Number(item.lng),
+            thumbnail: item.thumbnailImg || null,
+            wikipediaUrl: item.wikipediaUrl ? (item.wikipediaUrl.startsWith('http') ? item.wikipediaUrl : 'https://' + item.wikipediaUrl) : null,
+            feature: item.feature || '',
+            countryCode: item.countryCode || ''
+          }));
+        });
+    }
+
+    function clearAll() {
+      // remove markers, clear sidebar
+      markers.forEach(m => m.setMap(null));
+      markers = [];
+      lastResults = [];
+      document.getElementById('resultsList').innerHTML = '';
+      setStatus('Cleared.');
+    }
+
+    function renderResults(results) {
+      const container = document.getElementById('resultsList');
+      container.innerHTML = '';
+
+      if (!results.length) {
+        container.innerHTML = '<div class="small">No results</div>';
+        return;
+      }
+
+      results.forEach((r, idx) => {
+        const div = document.createElement('div');
+        div.className = 'result';
+        div.dataset.idx = idx;
+
+        const img = document.createElement('img');
+        img.className = 'thumb';
+        img.alt = r.title;
+        img.src = r.thumbnail || 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78"><rect width="100%" height="100%" fill="%23e8eef8"/><text x="50%" y="50%" font-size="11" text-anchor="middle" fill="%239aa8c7" dy=".35em">no image</text></svg>';
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.innerHTML = `<h4>${escapeHtml(r.title)}</h4>
+                          <p>${escapeHtml(truncate(r.summary, 220))}</p>
+                          <div class="links">
+                            ${ r.wikipediaUrl ? `<a class="link" target="_blank" rel="noopener" href="${r.wikipediaUrl}">Read full article</a>` : '' }
+                            <span class="small">${escapeHtml(r.countryCode || r.feature || '')}</span>
+                          </div>`;
+
+        div.appendChild(img);
+        div.appendChild(meta);
+
+        div.addEventListener('click', () => {
+          // open marker
+          const marker = markers[idx];
+          if (marker) {
+            map.panTo(marker.getPosition());
+            map.setZoom(10);
+            google.maps.event.trigger(marker, 'click');
+          }
+        });
+
+        container.appendChild(div);
+      });
+    }
+
+    function placeMarkers(results) {
+      // Clear old markers
+      markers.forEach(m => m.setMap(null));
+      markers = [];
+
+      results.forEach((r, idx) => {
+        // If lat/lng invalid skip
+        if (!isFinite(r.lat) || !isFinite(r.lng)) return;
+
+        const pos = { lat: r.lat, lng: r.lng };
+
+        // If thumbnail exists, use it as scaled icon
+        const markerOptions = {
+          map,
+          position: pos,
+          title: r.title,
+          optimized: true,
+        };
+
+        if (r.thumbnail) {
+          // set icon; scaledSize is available after maps loaded
+          markerOptions.icon = {
+            url: r.thumbnail,
+            scaledSize: new google.maps.Size(44, 44),
+            origin: new google.maps.Point(0,0),
+            anchor: new google.maps.Point(22,22)
+          };
+        }
+
+        const marker = new google.maps.Marker(markerOptions);
+
+        const content = buildInfoWindowContent(r);
+
+        marker.addListener('click', () => {
+          infoWindow.setContent(content);
+          infoWindow.open(map, marker);
+        });
+
+        markers.push(marker);
+      });
+    }
+
+    function buildInfoWindowContent(item) {
+      const title = escapeHtml(item.title);
+      const summary = escapeHtml(item.summary || '');
+      const link = item.wikipediaUrl ? `<div style="margin-top:8px;"><a target="_blank" rel="noopener" href="${item.wikipediaUrl}">Read full article on Wikipedia</a></div>` : '';
+      const thumbHtml = item.thumbnail ? `<div style="float:right;margin-left:8px;"><img src="${item.thumbnail}" width="96" style="border-radius:6px;max-width:96px;max-height:96px;object-fit:cover"></div>` : '';
+      return `<div style="max-width:360px;font-family:inherit">
+                <div style="font-weight:700;margin-bottom:6px">${title}</div>
+                ${thumbHtml}
+                <div style="font-size:13px;color:#222">${truncate(summary, 800)}</div>
+                ${link}
+              </div>`;
+    }
+
+    function fitToMarkers() {
+      if (!markers.length) {
+        setStatus('No markers to fit.');
+        return;
+      }
+      const bounds = new google.maps.LatLngBounds();
+      markers.forEach(m => bounds.extend(m.getPosition()));
+      map.fitBounds(bounds);
+    }
+
+    // Utilities
+    function truncate(str, n) {
+      if (!str) return '';
+      return str.length > n ? str.slice(0, n) + '…' : str;
+    }
+    function escapeHtml(unsafe) {
+      if (!unsafe) return '';
+      return unsafe.replace(/[&<"'>]/g, function(m) {
+        return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' })[m];
+      });
+    }
+
+    // Helpful note: GeoNames returns http endpoint. If you run into mixed-content issues in the browser,
+    // run a local server (instructions below) or use an http dev page.
+  </script>
+
+  <section style="display:none;">
+    <!--
+      How to run locally (choose one):
+      1) VSCode: install Live Server and click "Go Live" (default port 5500).
+         Then open: http://127.0.0.1:5500/index.html
+      2) Python 3 (from project directory):
+         python -m http.server 5500
+         then open http://127.0.0.1:5500/index.html
+      3) Node (serve):
+         npm i -g serve
+         serve -l 5500
+         open http://127.0.0.1:5500
+
+      GeoNames & Mixed Content:
+      - GeoNames example endpoint used here is: http://api.geonames.org/wikipediaSearchJSON
+      - If your page is loaded with https and the browser blocks the http request (mixed content),
+        start your dev server over http (127.0.0.1:5500) or try the secure endpoint if available.
+    -->
+  </section>
+</body>
+</html>
