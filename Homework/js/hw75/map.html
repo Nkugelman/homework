@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html, body {
+    height: 100%;
+    margin: 0;
+     }
+
+#container {
+    display: flex; 
+    height: 100%;
+}
+
+#sidebar {
+    width: 300px; 
+    background-color: #f4f4f4;
+    padding: 10px;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#sidebar li:hover {
+    background-color: #e0e0e0;
+}
+
+#main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#map {
+    flex: 1;
+    background-color: #eee;
+}
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    <div id="sidebar">
+        <h2>Search Results</h2>
+        <ul></ul>
+    </div>
+    <div id="main">
+        <input type="text" id="search" placeholder="please enter a proper address" />
+        <button id="searchBtn">Search</button>
+        <div id="map"></div>
+    </div>
+</div>
+  
+  
+    <script>
+      ((g) => {
+        var h,
+          a,
+          k,
+          p = 'The Google Maps JavaScript API',
+          c = 'google',
+          l = 'importLibrary',
+          q = '__ib__',
+          m = document,
+          b = window;
+        b = b[c] || (b[c] = {});
+        var d = b.maps || (b.maps = {}),
+          r = new Set(),
+          e = new URLSearchParams(),
+          u = () =>
+            h ||
+            (h = new Promise(async (f, n) => {
+              await (a = m.createElement('script'));
+              e.set('libraries', [...r] + '');
+              for (k in g)
+                e.set(
+                  k.replace(/[A-Z]/g, (t) => '_' + t[0].toLowerCase()),
+                  g[k]
+                );
+              e.set('callback', c + '.maps.' + q);
+              a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+              d[q] = f;
+              a.onerror = () => (h = n(Error(p + ' could not load.')));
+              a.nonce = m.querySelector('script[nonce]')?.nonce || '';
+              m.head.append(a);
+            }));
+        d[l]
+          ? console.warn(p + ' only loads once. Ignoring:', g)
+          : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+      })({
+        key: 'AIzaSyDlldoFpxfOcVlKNqCR0zAJo0msOP8JIJo',
+        v: 'weekly',
+        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+        // Add other bootstrap parameters as needed, using camel case.
+      });
+    </script>
+     <script src="map.js"></script>
+  </body>
+</html>
