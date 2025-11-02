@@ -112,7 +112,7 @@ async function  fetchUrl(url){
 }
 async function getWeather(lat, lon) {
   
-  const OPENWEATHER_KEY = '3876230aa5dd42eeba5e8bb9da9ea2f0';
+  const OPENWEATHER_KEY = '';
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${OPENWEATHER_KEY}`;
   try {
   const response = await fetch(url);
