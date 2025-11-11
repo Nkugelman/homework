@@ -16,14 +16,32 @@ console.log(v1);
 function Plane(color){
     Vehicle.call (this, color);
 }
-Plane.prototype = Object.create (Vehicle.prototype);
+Plane.prototype = Object.create(Vehicle.prototype);
 Plane.prototype.constructor = Plane;
 Plane.prototype.go = function (speed){
     this.speed = speed;
     console.log (`this plane is flying at ${this.speed} miles a hr`);
 }
+class PlaneClass extends Vehicle {
+    constructor(color){
+        super (color);
+    }
+    go(speed){
+        this.speed = speed;
+        console.log (`this plane is flying at ${this.speed} miles a hr`);
+    }
+    print(){
+        console.log(`Plane color: ${this.color}, speed: ${this.speed}`);
+    }
+}
+
+  
 
     const p1 = new Plane ('white');
     p1.go (500);
     p1.print();
     console.log(p1);
+    const p2 = new PlaneClass ('blue');
+    p2.go (600);
+    p2.print();
+    console.log(p2);
