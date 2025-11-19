@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          html,body{
+            margin:0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+           
+        }
+        #theCanvas{
+            display: block;
+         
+        }
+    </style>
+</head>
+<body>
+   <label>Color: <input type="color" id="colorPick"></label>
+<label>Radius: <input type="number" id="radiusPick" value="50" min="5"></label>
+<button id="addBtn">Apply</button>
+    <canvas id="theCanvas"></canvas>
+    <script src="canvas.js"></script>
+</body>
+</html>
