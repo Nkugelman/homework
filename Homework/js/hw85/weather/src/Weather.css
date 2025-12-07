@@ -1,0 +1,14 @@
+
+      
+      .container{
+     text-align:center
+      }
+      .error{
+        color: red;
+      }
+      body{
+       background-color:gray;
+       font-size: 2rem;
+       font-family:cursive
+       
+      }
