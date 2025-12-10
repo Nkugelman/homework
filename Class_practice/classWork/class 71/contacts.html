@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+        padding: 0.5em;
+      }
+
+      .form-group {
+        margin-bottom: 0.5em;
+      }
+
+      .form-group label {
+        width: 3em;
+        display: inline-block;
+      }
+
+      #addContactForm {
+        display: none;
+        background-color: lightcyan;
+        border: 1px solid black;
+        padding: 1em;
+        height: 8.5em;
+        width: 15em;
+
+
+        /*margin: auto;*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -4.25em;
+        margin-left: -7.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <button id ="load">contacts load</button>
+    <button id="addContact">add contact</button>
+    <table id="contactsTable">
+      <thead>
+        <tr>
+          <th>first</th>
+          <th>last</th>
+          <th>email</th>
+          <th>phone</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5">No contacts loaded</td>
+        </tr>
+      </tbody>
+    </table>
+
+     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi officiis saepe laborum velit nulla corrupti exercitationem temporibus a, omnis quae ea quaerat voluptate ipsum maiores minima hic neque! Quaerat, pariatur!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quidem sequi necessitatibus, non ratione libero, quae recusandae tenetur sed totam harum pariatur voluptatibus eaque ad hic eligendi. Exercitationem temporibus fuga accusantium provident, eaque iusto praesentium quam ex officiis. Mollitia commodi voluptates iusto exercitationem neque, aperiam ullam sint inventore quae unde rem quo fugit tempore deserunt quisquam sunt itaque omnis esse sit sed. Sunt accusamus quae nemo asperiores libero. Excepturi facilis eaque nobis quibusdam animi facere delectus debitis, id necessitatibus tenetur saepe earum ipsa pariatur vero impedit eligendi asperiores culpa vitae sequi dolor! Consequatur officiis nihil explicabo quos, quam sequi suscipit accusantium illum minus sunt ad ullam iste fugiat rerum ratione blanditiis possimus? Qui libero eius quis eum reiciendis eveniet! Sapiente eligendi id placeat saepe, reiciendis dicta mollitia cumque unde maiores et, quae iusto, alias modi amet esse doloribus consequuntur. Maxime consequuntur id quaerat suscipit pariatur non ullam tenetur, possimus odio quis necessitatibus nesciunt illum corporis eos fuga voluptatibus quasi laborum aperiam, nulla expedita error earum. Id, voluptas architecto! Expedita, ratione, laborum temporibus odio corrupti culpa, incidunt magni eaque eos ipsum voluptas fugiat aliquam. Consectetur iusto quasi doloremque aliquid, perspiciatis et maiores atque laboriosam at saepe fugiat, earum ad nulla facere. Debitis, rerum! Earum eveniet odio culpa maiores dolore iste repellendus fugit! Cum placeat, quis dignissimos, omnis delectus magnam rerum voluptas veritatis iste recusandae exercitationem aliquid commodi ex ratione esse eveniet, debitis labore. Placeat soluta iusto et animi labore commodi, assumenda dolorem, obcaecati tempora facere quia nostrum optio adipisci molestiae autem neque error nesciunt rem consectetur atque quis asperiores! Sit ut ipsum quibusdam et excepturi consequuntur maiores dolorum ipsam necessitatibus vitae impedit commodi tempore delectus, illo ipsa laborum fugit reprehenderit accusantium a, exercitationem doloremque vel? Expedita amet ab quaerat quas accusamus animi ratione. Corporis alias dicta recusandae, labore impedit mollitia veniam reprehenderit, fuga numquam fugit est atque ea repellendus magni. Ad molestias iste possimus sapiente quae, quaerat consectetur soluta molestiae sequi quis repellendus vel voluptate ipsum sed aperiam ab blanditiis, porro quibusdam laudantium, tempore adipisci assumenda doloremque cumque. Ad, architecto vel. Debitis impedit nisi eaque, sit corrupti dolor mollitia, delectus quam praesentium exercitationem ipsum obcaecati animi. Facilis ea sit ex reiciendis maiores consectetur optio praesentium dolore quia minus illum provident nobis, quas, ipsa, totam nam doloribus deserunt? Facere sit accusantium nesciunt, modi ipsum exercitationem ex libero cumque neque maxime illum excepturi quibusdam enim, magnam accusamus autem at eligendi ipsam eius provident? Voluptates, aliquid enim, a odit culpa asperiores tenetur consectetur molestias amet aut iure repudiandae est pariatur hic, tempore expedita perspiciatis mollitia eius? Iusto quasi tempora ut facere ipsam eaque magnam illum officia? Consectetur beatae veniam repudiandae esse enim at eligendi doloremque animi, itaque perspiciatis ducimus harum corporis nostrum nobis architecto quas voluptatem eaque in dolorum inventore ipsam laudantium quo. At maxime perferendis illum ad porro quasi dolore corrupti inventore assumenda quod eveniet ipsum voluptate iusto sunt, possimus harum quidem tenetur placeat praesentium consequuntur nobis nisi! Voluptatum recusandae et quibusdam assumenda quas molestiae, ea hic facere? Placeat corrupti cupiditate ipsam esse.
+     </p>
+
+    <form id="addContactForm">
+      <div class="form-group">
+        <label for="first">first:</label>
+        <input id="first" />
+      </div>
+      <div class="form-group">
+        <label for="last">last:</label>
+        <input id="last" required/>
+      </div>
+      <div class="form-group">
+        <label for="email">email:</label>
+        <input id="email" type="email"/>
+      </div>
+      <div class="form-group">
+        <label for="phone">phone:</label>
+        <input id="phone" type="tel"/>
+      </div>
+      <button>add</button>
+      <button type="reset">reset</button>
+      <button id="cancel" type="button">cancel</button>
+    </form>
+      <script src="jquery-3.7.1.slim.min.js"></script>
+    <script src="contacts.js"></script>
+  </body>
+</html>

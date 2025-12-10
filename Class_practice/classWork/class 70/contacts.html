@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #contactsTable {
+            width: 80%;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        #contactsTable th, #contactsTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        #contactsTable th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 10px;
+            
+        }
+        .form-group label {
+           width: 3em;
+           display: inline-block;
+
+        }
+        #addContactForm{
+            display: none;
+            background-color: lightblue;
+            border: 1px solid black;
+            padding: 1em;
+            width: 15em;
+            height: 8.5em;
+
+            margin: auto;
+
+        }
+    </style>
+</head>
+<body>
+    <button id ="addContact">add Contact</button>
+    <!--<button id="addContact">Add Contact</button>-->
+    <table id="contactsTable">
+        <thead>
+            <tr>
+                <th>first</th>
+                <th>last</th>
+                <th>email</th>
+                <th>phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="4">no contacts available</td>
+            </tr>
+        </tbody>
+    </table>
+    <form id="addContactForm">
+        <div class="form-group">
+           <label for="first"> first:</label>
+              <input id="first" >
+        </div>
+        <div class="form-group">
+           <label for="last"> last:</label>
+              <input  id="last">
+        </div>
+        <div class="form-group">
+           <label for="email"> email:</label>
+              <input id="email" >
+        </div>
+        <div class="form-group">
+           <label for="phone"> phone:</label>
+              <input id="phone" >
+        </div>
+      <button type="submit">Add Contact</button>
+    </form>
+    <script src ="jquery-3.7.1.slim.min.js"></script>
+   <script src = "contacts.js"></script> 
+</body>
+</html>

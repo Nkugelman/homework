@@ -41,3 +41,5 @@ function printIt(x) {
 onlyIf(letters1, (x) => x === x.toUpperCase(), printIt);
 
 onlyIf(letters2, (x) => x === x.toUpperCase(), printIt);
+onlyIf(letters1 ,(x) => x === x.toUpperCase(), x =>console.log(x));
+

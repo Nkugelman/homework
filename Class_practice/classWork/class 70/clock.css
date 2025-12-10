@@ -1,0 +1,9 @@
+.clock {
+    background-color: black;
+    color: red;
+    display: inline-block;
+    padding: 1em;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: monospace;
+}

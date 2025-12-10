@@ -31,10 +31,10 @@
             console.log(colors);
             // if (index === colors.length) index = 0;
             //  document.body.style.backgroundColor = pickRandomColor();
-            // eslint-disable-next-line no-cond-assign
+           
           
-          //  document.body.style.color = `rgb(${r},${g},${b})`;
-//document.body.style.backgroundColor =`rgb(${b},${g},${r})`;
+          //  document.body.style.color = `rgb(${r},${g},${b})
+          //document.body.style.backgroundColor =`rgb(${b},${g},${r})`;
            
         }, 1000);
     }
@@ -48,7 +48,7 @@
         const colorCell = row.insertCell();
         const bgColorCell = row.insertCell();
         const timeCell = row.insertCell();
-
+       
         colorCell.textContent = document.body.style.color;
         bgColorCell.textContent = document.body.style.backgroundColor;
         timeCell.textContent = new Date().toLocaleTimeString();

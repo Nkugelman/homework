@@ -29,8 +29,8 @@ let infowindow;
 searchBtn.addEventListener('click', async() => {
     sidebar.querySelector('ul').innerHTML ='';
 
-    const query = search.value;
-    const url = `http://api.geonames.org/wikipediaSearch?q=${query}y&maxRows=10&username=${GEONAMES_USER}&type=json`;
+    const query = /*search.value*/'San Francisco';
+    const url = `http://api.geonames.org/wikipediaSearch?q=${query}&maxRows=10&username=${GEONAMES_USER}&type=json`;
     const data = await fetchUrl(url)
     data.geonames.forEach(d => {
         const li = document.createElement('li');
@@ -45,7 +45,32 @@ searchBtn.addEventListener('click', async() => {
       span.textContent = d.title;
       li.appendChild(span);
 
-      li.addEventListener('click', () => {
+      li.addEventListener('click', async() => {
+        try {
+        const weather= await getWeather(d.lat, d.lng);
+      
+       const desc = weather.weather.description;
+       const icon = weather.weather.icon;
+          const temp = weather.main.temp;
+
+    const content = `
+      <div style="min-width:200px">
+        <strong>${d.title}</strong><br>
+        Country: ${d.countryCode}<br>
+        <img src="https://openweathermap.org/img/wn/${icon}.png" alt="Weather">
+        ${desc}, ${temp}°F<br>
+        <a href="https://${d.wikipediaUrl}" target="_blank">More info</a>
+      </div>`;
+      if (!infowindow) {
+  infowindow = new google.maps.InfoWindow();
+}
+      infowindow.setContent(content);
+      infowindow.open(map, marker);
+        } catch (e) {
+            console.error('Error fetching weather data:', e);
+        }
+
+          
         const lat = parseFloat(d.lat);
         const lng = parseFloat(d.lng);
         if(!marker){
@@ -85,5 +110,25 @@ async function  fetchUrl(url){
     const data = await r.json();
     return data;
 }
+async function getWeather(lat, lon) {
+  
+  const OPENWEATHER_KEY = '3876230aa5dd42eeba5e8bb9da9ea2f0';
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${OPENWEATHER_KEY}`;
+  try {
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data);
+  
+
+  if (!data.weather) {
+    console.error('Unexpected weather response:', data);
+    throw new Error('Weather data missing');
+  }
+  return data;
+} catch (err) {
+    console.error("getWeather() failed:", err);
+}
+}
+
 
 }());

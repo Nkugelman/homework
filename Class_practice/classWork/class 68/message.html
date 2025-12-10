@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="msg">
+    <input type="checkbox" id="modal">modal
+    <button id="show">show</button>
+    <hr>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat quam dicta ullam assumenda soluta itaque, sapiente id, voluptas consequuntur beatae nobis esse ratione, repudiandae molestias. Beatae, repellendus! Quod, beatae mollitia.
+    <script src="message.js"></script>
+
+    <script>
+        myMsg('shalom');
+        show.addEventListener('click',() =>{
+                myMsg(msg.value,modal.checked);
+        });
+    </script>
+</body>
+</html>

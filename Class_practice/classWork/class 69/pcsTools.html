@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+<h1 id="trump">donald trump</h1>
+
+<script src="pcsTools.js"></script>
+
+<script>
+//  const trump = window.pcsTools.getElement('#trump');
+const trump =window.pcsTools.wrap('#trump');
+ trump.css( 'color' ,'red');
+ trump.css( 'font-size' ,'50px');
+  trump.css( 'cursor' ,'pointer');
+console.log(trump.css('color'));
+console.log(trump.css('background-color'));
+    trump.addClick(() => {
+        alert('you clicked on trump');
+    });
+    trump.on( 'mouseenter' , () => trump.css('font-size' ,'64px' ));
+    trump.on( 'mouseleave' , () => trump.css('font-size' ,'2em' ));
+   </script>
+</body>
+</html>

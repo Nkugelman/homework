@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Potato Head Deluxe</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    color: white;
+    text-shadow: 0 0 5px black;
+  }
+  .controls {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .pieces {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: none;
+  }
+  .piece {
+    position: absolute;
+    width: 100px;
+    cursor: grab;
+    user-select: none;
+  }
+  #trash {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: crimson;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  select, button, input {
+    margin: 3px;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button id="startBtn">Start</button>
+  <button id="resetBtn" style="display:none;">Reset</button>
+  <select id="bgPick"><option value="">Select Background</option></select>
+  <select id="bgMusicPick"><option value="">Select Music</option></select>
+  <button id="saveSet">Save Pose</button>
+  <button id="loadSet">Load Pose</button>
+  <select id="posePicker"></select>
+  <input type="text" id="customPartUrl" placeholder="Enter image URL">
+  <button id="addPartBtn">Add Part</button>
+</div>
+
+<div class="pieces"></div>
+<div id="trash">🗑️</div>
+
+<audio id="bgMusic" loop></audio>
+<script src="potatoe2.js"></script>
+</body>
+</html>

@@ -1,66 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-       .play-area {
-  position: relative;
-  width: 400px;
-  height: 500px;
-  margin: 20px auto;
-  background-color: #f3e4c8; 
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Potato Head Deluxe</title>
+<style>
+
+body {
+  margin: 0;
   overflow: hidden;
-  display: grid;
+  background-size: cover;
+  background-position: center;
 }
 
-.potato-base {
+
+.controls {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.controls button,
+.controls select {
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+.piece {
+  width: 80px;
+  cursor: grab;
+  user-select: none;
+  position: absolute;
+  transition: transform 0.2s;
+}
+
+
+
+#baseFace {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 200px;
   transform: translate(-50%, -50%);
-  width: 250px; 
-  z-index: 0;
-}
-.pieces {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  display: none;
-}
-
-.piece {
-  position: absolute;
-  width: 80px;
-  cursor: grab;
-  
+  pointer-events: none;
   z-index: 1;
 }
-.play-area {
-    text-align: center;
+
+
+#trash {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: crimson;
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  z-index: 1000;
+}
+/* Storage at the bottom */
+.storage {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px;
+  
+ 
 }
 
 
-        
-    </style>
-    
+
+</style>
 </head>
 <body>
-    <button id="startBtn">Start Game</button>
-    <audio id="bgMusic" src="media/shloime_yosef_aheim.mp3"></audio>
-    <div class="pieces">
 
-       
-    </div>
-<div class="play-area">
-  <img src="media/face.png" class="potato-base" alt="potato">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Potato Head Deluxe</title>
  
-  <div class="pieces"></div>
-</div>
+</head>
+<body>
 
-    <script src="mrPotatoe.js"></script>
+
+  <div class="controls">
+    <button id="startBtn">Start</button>
+    <button id="resetBtn" style="display:none;">Reset</button>
+    <select id="bgPick"><option value="">Select Background</option></select>
+    <select id="bgMusicPick"><option value="">Select Music</option></select>
+  </div>
+
+ 
+  <div class="storage"></div>
+
+  <div class="pieces"></div>
+  <img id="baseFace" src="media/face.png" alt="Potato Head" />
+
+ 
+  <div id="trash">🗑️</div>
+
+ 
+  <audio id="bgMusic" loop></audio>
+
+  <script src="mrPotatoe.js"></script>
 </body>
 </html>
+

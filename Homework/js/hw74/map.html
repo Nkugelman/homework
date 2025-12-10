@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-     html, body {
+      html, body {
     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
-}
+     }
 
 #container {
     display: flex; 
+    height: 100%;
 }
 
 #sidebar {
@@ -55,14 +55,15 @@
     <div id="container">
     <div id="sidebar">
         <h2>Search Results</h2>
-        <ul><img src="" alt=""></ul>
+        <ul></ul>
     </div>
     <div id="main">
-        <input type="text" id="search" placeholder="Search for a place" />
+        <input type="text" id="search" placeholder="please enter a proper address" />
         <button id="searchBtn">Search</button>
         <div id="map"></div>
     </div>
 </div>
+  
   
     <script>
       ((g) => {
@@ -100,7 +101,7 @@
           ? console.warn(p + ' only loads once. Ignoring:', g)
           : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
       })({
-        key: 'my key',
+        key: 'AIzaSyDlldoFpxfOcVlKNqCR0zAJo0msOP8JIJo',
         v: 'weekly',
         // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
         // Add other bootstrap parameters as needed, using camel case.

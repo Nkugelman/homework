@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+  "name": "chulent",
+  "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcqWtLDhqjr-rX83c9HdPIgBmu0pNMxqpu_A&s",
+  "ingredients": ["meat", "potatoes", "all sorts of beans"],
+  "directions":["add stuff to pot","turn on fire"]
+},
+{
+    "id":2,
+  "name": "macaroni",
+  "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1hPaYCgA537t0XwMPLETLdkVSZ3_sAK1cJw&s",
+  "ingredients": ["macaroni", "water", "salt"],
+   "directions":["rool macoronu","turn on fire"]
+},
+{
+    "id":3,
+  "name": "pizza",
+  "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHFpIjD3ZEzEYu8vJEFPrD9DfhePLngToCrw&s",
+  "ingredients": ["dough", "sauce", "cheese"],
+   "directions":["make dough","turn on fire","put in oven"]
+}
+
+
+
+]

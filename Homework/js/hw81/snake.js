@@ -18,7 +18,14 @@
   window.addEventListener('resize', resizeCanvas);
 
   resizeCanvas();
+  class Snake{
+    segments =[{
+        x:-SNAKE_SIZE,
+        y:0
+    }]
 
+  }
+ 
   function createApple(size){
     return{
         size,
@@ -94,9 +101,10 @@ document.addEventListener('keydown', e => {
           default:
         console.log(e.key, 'is not a supported key');
     }
+    
   });
 
- 
+
   setInterval(() => {
    
     context.clearRect(0, 0, theCanvas.width, theCanvas.height);
