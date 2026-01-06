@@ -1,0 +1,42 @@
+body { font-family: Arial; padding: 20px; background: #f5f6fa; }
+h1 { text-align: center; }
+#tree { max-width: 800px; margin: 20px auto; }
+
+/* Side-by-side couple */
+.couple {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.person {
+  border: 2px solid #4a90e2;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  min-width: 120px;
+  position: relative;
+}
+
+.person:hover { background: #eef4ff; }
+
+.children {
+  margin-left: 50px;
+  display: none; /* hidden until clicked */
+}
+
+button.edit-btn {
+  display: block;
+  margin: 5px auto;
+  padding: 5px 8px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.edit-btn:hover { background: #357abd; }
