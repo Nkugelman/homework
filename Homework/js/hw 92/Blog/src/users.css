@@ -1,0 +1,48 @@
+.users-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.user-class {
+  background: #ffffff;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.userClass:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.userClass h3 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+}
+
+.userClass p {
+  margin: 0 0 16px;
+  color:wheat;
+}
+
+.view-comments {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 14px;
+  background: #2575fc;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.view-comments:hover {
+  background: #1a5fd0;
+}
+
