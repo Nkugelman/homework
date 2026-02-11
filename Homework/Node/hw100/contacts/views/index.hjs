@@ -1,5 +1,5 @@
 <a href="/addContact">add contact</a>
-<a href="/contacts/editContact/{{id}}">edit</a>
+
 
 <table id="contactsTable">
   <thead>
@@ -24,9 +24,9 @@
         <td>{{last}}</td>
         <td>{{email}}</td>
         <td>{{phone}}</td>
-        <td><form method="post" action="/deleteContact/{{id}}"><button>delete</button></form></td>
+        <td><form method="post" action="contacts/deleteContact/{{id}}"><button>delete</button></form></td>
        <td>
-  <a href="/editContact/{{id}}">edit</a>
+  <a href="contacts/editContact/{{id}}">edit</a>
 </td>
 
       </tr>

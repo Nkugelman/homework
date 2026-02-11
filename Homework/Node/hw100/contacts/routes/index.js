@@ -34,15 +34,17 @@ router.get('/addContact', (req, res, next) => {
   });
 });
 
-router.post('/addContact', (req, res, next) =>{
-  contacts.push(req.body);
+router.post('/addContact', (req, res, next) => {
+  const newContact = {
+    id: contacts.length ? contacts[contacts.length - 1].id + 1 : 1,
+    ...req.body
+  };
 
-  res.writeHead(301, {
-    location: '/'
-  });
+  contacts.push(newContact);
 
-  res.end();
+  res.redirect('/contacts');
 });
+
 
 router.post('/deleteContact/:id', (req, res, next) => {
   contacts = contacts.filter(c => c.id !== Number(req.params.id));
