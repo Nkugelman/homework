@@ -1,8 +1,44 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
 }
 
-a {
-  color: #00B7FF;
+td,
+th {
+  border: 1px solid black;
+  padding: 0.5em;
+}
+
+.form-group {
+  margin-top: 10px;
+  margin-bottom: 10px
+ 
+}
+
+.form-group label {
+ 
+  display: inline-block;
+  width:120px;
+  text-align: right;
+  margin-right: 10px;
+}
+.form-group input, .form-group textarea {
+width: 250px;
+}
+
+#contactForm {
+  display: none;
+  background-color: lightcyan;
+  border: 1px solid black;
+  padding: 1em;
+  height: 8.5em;
+  width: 15em;
+
+  /*margin: auto;*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -4.25em;
+  margin-left: -7.5em;
 }

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <button type="addRecipe" id="addRecipe">add recipe</button>
+    <table id="recipesTable">
+      <thead>
+        <tr>
+          <th>title</th>
+          <th>description</th>
+          <th>ingridients</th>
+          <th>instructions</th>
+          <th>created at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5">No recipes loaded</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form id="recipeForm">
+      <div class="form-group">
+        <label for="title">title:</label>
+        <input id="title" />
+      </div>
+      <div class="form-group">
+        <label for="description">description:</label>
+        <input id="description" required />
+      </div>
+      <div class="form-group">
+        <label for="ingridients">ingridients:</label>
+           <input id="ingridients" />
+      </div>
+      <div class="form-group">
+        <label for="instructions">instructions:</label>
+        <input id="instructions"  />
+      </div>
+       
+      <button>save</button>
+      <button type="reset">reset</button>
+      <button id="cancel" type="button">cancel</button>
+    </form>
+    <script src="/javascripts/jquery-3.7.1.min.js"></script>
+    <!--script src="/javascripts/messageBox.js"></script-->
+    <script src="/javascripts/contacts.js" type="module"></script>
+  </body>
+</html>
