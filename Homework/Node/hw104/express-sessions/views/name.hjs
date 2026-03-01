@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enter Name</title>
+</head>
+<body>
+
+<h1>Enter your name</h1>
+
+<form method="POST" action="/name">
+
+  <input type="text" name="name" required>
+
+  <button type="submit">Save Name</button>
+
+</form>
+
+</body>
+</html>
