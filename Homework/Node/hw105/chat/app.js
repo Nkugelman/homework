@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', (socket) => {
 
-    let username = "Anonymous";
+    let username = "Guest";
 
    
     socket.on('join', name => {
@@ -26,18 +26,16 @@ io.on('connection', (socket) => {
         io.emit('msg', `${username} joined the chat`);
     });
 
-    // user sends message
+   
     socket.on('msg', msg => {
         io.emit('msg', `${username} said - ${msg}`);
     });
 
-    // user disconnects
+    
     socket.on('disconnect', () => {
         io.emit('msg', `${username} left the chat`);
     });
 
 });
 
-server.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
-});
+server.listen(3000)
