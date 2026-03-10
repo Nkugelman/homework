@@ -1,0 +1,197 @@
+Microsoft Windows [Version 10.0.26200.7922]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\kugel>mongosh
+Current Mongosh Log ID: 69af995c4321499d8b7c2906
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:          8.2.5
+Using Mongosh:          2.7.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2026-03-08T21:54:26.879-04:00: Access control is not enabled for the database. Read and write access to data and configuration isunrestricted
+------
+
+test> show dbs
+admin   40.00 KiB
+config  60.00 KiB
+local   40.00 KiB
+test> use admin
+switched to db admin
+admin> use foo
+switched to db foo
+foo> show collection
+MongoshInvalidInputError: [COMMON-10001] 'collection' is not a valid argument for "show".
+foo> show collections
+
+foo> use admin
+switched to db admin
+admin> show collections
+system.version
+admin> use foo
+switched to db foo
+foo> show foo
+MongoshInvalidInputError: [COMMON-10001] 'foo' is not a valid argument for "show".
+foo> show collections
+
+foo> db.things.insertOne({foo:'bar'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b045774321499d8b7c2907')
+}
+foo> show collections
+things
+foo> db.things.find()
+[ { _id: ObjectId('69b045774321499d8b7c2907'), foo: 'bar' } ]
+foo> db.things.insertOne({foo:'bar'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b0464e4321499d8b7c2908')
+}
+foo> db.things.insertOne({foo:'bar',ObjectId('69b045774321499d8b7c2907')})
+Uncaught:
+SyntaxError: Unexpected token (1:40)
+
+> 1 | db.things.insertOne({foo:'bar',ObjectId('69b045774321499d8b7c2907')})
+    |                                         ^
+  2 |
+
+foo> db.things.insertOne({foo:'bar',ObjectId('69b045774321499d8b7c2905')})
+Uncaught:
+SyntaxError: Unexpected token (1:40)
+
+> 1 | db.things.insertOne({foo:'bar',ObjectId('69b045774321499d8b7c2905')})
+    |                                         ^
+  2 |
+
+foo> db.things.insertOne({foo:'bar',ObjectId(69b045774321499d8b7c2905)})
+Uncaught:
+SyntaxError: Identifier directly after number. (1:42)
+
+> 1 | db.things.insertOne({foo:'bar',ObjectId(69b045774321499d8b7c2905)})
+    |                                           ^
+  2 |
+
+foo> db.things.insertOne({foo:'bar',ObjectId('69b045774321499d8b7c2905')})
+Uncaught:
+SyntaxError: Unexpected token (1:40)
+
+> 1 | db.things.insertOne({foo:'bar',ObjectId('69b045774321499d8b7c2905')})
+    |                                         ^
+  2 |
+
+foo> db.things.insertOne({foo:'bar',ObjectId('69b045774321499d8b7c2906')})
+Uncaught:
+SyntaxError: Unexpected token (1:40)
+
+> 1 | db.things.insertOne({foo:'bar',ObjectId('69b045774321499d8b7c2906')})
+    |                                         ^
+  2 |
+
+foo> db.things.insertOne({foo:'bar',ObjectId(69b045774321499d8b7c2906)})
+Uncaught:
+SyntaxError: Identifier directly after number. (1:42)
+
+> 1 | db.things.insertOne({foo:'bar',ObjectId(69b045774321499d8b7c2906)})
+    |                                           ^
+  2 |
+
+foo> use one
+switched to db one
+one> show collections
+
+one> db.presidents.insert({name:'Donald Trump',year:2026})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('69b047704321499d8b7c2909') }
+}
+one> db.presidents.insertMany({name:'Donald Trump',year:2016},{name:'Joe Biden',year:2020,sleepy:'yes'},{name:'Barrack Obama',year:2008,religion:'muslim'})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+one> db.presidents.insertMany([{name:'Donald Trump',year:2016},{name:'Joe Biden',year:2020,sleepy:'yes'},{name:'Barrack Obama',year:2one> db.presidents.insertMany([{name:'Donald Trump',year:2016},{name:'Joe Biden',year:2020,sleepy:'yes'},{name:'Barrack Obama',year:2008,religion:'muslim'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b0484a4321499d8b7c290a'),
+    '1': ObjectId('69b0484a4321499d8b7c290b'),
+    '2': ObjectId('69b0484a4321499d8b7c290c')
+  }
+}
+one> db.presidents.find()
+[
+  {
+    _id: ObjectId('69b047704321499d8b7c2909'),
+    name: 'Donald Trump',
+    year: 2026
+  },
+  {
+    _id: ObjectId('69b0484a4321499d8b7c290a'),
+    name: 'Donald Trump',
+    year: 2016
+  },
+  {
+    _id: ObjectId('69b0484a4321499d8b7c290b'),
+    name: 'Joe Biden',
+    year: 2020,
+    sleepy: 'yes'
+  },
+  {
+    _id: ObjectId('69b0484a4321499d8b7c290c'),
+    name: 'Barrack Obama',
+    year: 2008,
+    religion: 'muslim'
+  }
+]
+one> db.presidents.findOne({name:'Donald'},{name:1})
+null
+one> db.presidents.findOne({name:'Donald Trump'},{name:1})
+{ _id: ObjectId('69b047704321499d8b7c2909'), name: 'Donald Trump' }
+one> edit potus
+Opening an editor...
+Error: Command failed with an error: please define an external editor
+one> let potus ={name:'donald}
+Uncaught:
+SyntaxError: Unterminated string constant. (1:17)
+
+> 1 | let potus ={name:'donald}
+    |                  ^
+  2 |
+
+one> let potus ={name:'donald'}
+
+one> edit potus
+Opening an editor...
+Error: Command failed with an error: please define an external editor
+one> config
+Map(23) {
+  'displayBatchSize' => 20,
+  'maxTimeMS' => null,
+  'enableTelemetry' => true,
+  'editor' => null,
+  'disableSchemaSampling' => false,
+  'snippetIndexSourceURLs' => 'https://compass.mongodb.com/mongosh/snippets-index.bson.br',
+  'snippetRegistryURL' => 'https://registry.npmjs.org',
+  'snippetAutoload' => true,
+  'inspectCompact' => 3,
+  'inspectDepth' => 6,
+  'historyLength' => 1000,
+  'showStackTraces' => false,
+  'redactHistory' => 'remove',
+  'oidcRedirectURI' => undefined,
+  'oidcTrustedEndpoints' => undefined,
+  'browser' => undefined,
+  'updateURL' => 'https://downloads.mongodb.com/compass/mongosh.json',
+  'disableLogging' => false,
+  'logLocation' => undefined,
+  'logRetentionDays' => 30,
+  'logMaxFileCount' => 100,
+  'logCompressionEnabled' => false,
+  'logRetentionGB' => undefined
+}
+one> 69b045774321499d8b7c2907'
