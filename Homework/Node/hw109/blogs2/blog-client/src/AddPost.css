@@ -1,0 +1,9 @@
+#addPost input,
+#addPost textArea {
+  width: 98%;
+  margin: .5em;
+}
+
+#addPost textArea {
+  height: 10em;
+}
